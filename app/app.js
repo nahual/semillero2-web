@@ -1,14 +1,25 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+var semillero = angular.module('semillero', [
+  'ngRoute'
+]);
+
+semillero.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+
+  var basePath = "https://semillero-nahual.herokuapp.com/";
+
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+
+  /* app */
+  $routeProvider.when('/graduated', {templateUrl: 'views/graduated/index.html', controller: 'graduatedController'});
+
+  $routeProvider.otherwise({redirectTo: '/'});
+}]).run(
+    function ($rootScope, $location) {
+      $rootScope.location = $location;
+    });
+
+
+
