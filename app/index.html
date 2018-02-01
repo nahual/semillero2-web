@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="semillero">
+<head>
+    <meta charset="utf-8">
+    <title>Proyecto Nahual - Semillero</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app.css">
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/q/q.js"></script>
+
+    <script src="app.js"></script>
+    <script src="services/GraduatedService.js"></script>
+    <script src="controllers/graduated/GraduatedController.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" id="semillero-brand" href="#">
+                <img src="img/macaco.png" />
+                SEMILLERO
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="graduated">Graduados</a></li>
+                <li><a href="companies">Empresas</a></li>
+                <li><a href="nodes">Nodos</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div ng-view></div>
+
+</body>
+</html>
