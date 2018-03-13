@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
@@ -42,12 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#IDEA file
-logs/*
-!.gitkeep
-node_modules/
-bower_components/
-tmp
-.DS_Store
-.idea
+*.log
 *.iml
+/.idea
