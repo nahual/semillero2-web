@@ -1,25 +1,20 @@
-## Semillero2Web
+# Semillero Web
 
-Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+## Introducción
 
-Todavía no fue muy modificado. Se dejan los links de abajo ya que en esta etapa de aprendizaje para algunos pueden ser de utilidad.
+Necesitamos darle una hermosa cara a una API que tenemos para poder administrar la relación entre los estudiantes nahualeros y las empresas que nos contactan. 
 
-#### Code scaffolding
+## Instalación DEV
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Docker
 
-#### Build
+El docker-compose del proyecto en general está mejor explicado en el proyecto de [semillero2-docker](https://github.com/nahual/semillero2-docker) 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-#### Running unit tests
+### Documentación endpoints
+    
+La documentación de la API está escrita en RAML 0.8. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El HTML generado se puede ver en el siguiente [link](https://rawgit.com/nahual/semillero2-api/development/apiV2.html)
 
-#### Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-#### Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
