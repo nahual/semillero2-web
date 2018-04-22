@@ -1,3 +1,13 @@
-<p>
-  lista works!
-</p>
+<div class="">
+	<p>Empresas</p>
+<table class="table">
+	<tbody class="table-striped"></tbody>
+	<tr scope="row"><th>Nombre</th><th>Empresa</th></tr>
+	 <tr *ngFor="let row of items.companies" scope="row">
+	 	<td>{{row.name}}</td>
+	 	<td>{{row.email}}</td>
+	 	<td><a (click)="onEdit(hero)" href="#"> Editar</a></td>
+	 	<td><a (click)="onRemove(hero)" href="#"> Editar</a></td>
+	 </tr>
+</table>
+</div>
