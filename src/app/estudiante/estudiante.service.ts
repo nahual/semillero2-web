@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Authorization': 'Basic c2VtaWxsZXJvOnNlbWlsbGVybw==' })
-};
 
 @Injectable()
 export class EstudianteService {
@@ -19,9 +15,9 @@ export class EstudianteService {
   getEstudiantes(): Observable<any[]> {
     const url = `${this.apiUrl}/student`;
 
-    return this.http.get<any[]>(url, httpOptions)
+    return this.http.get<any[]>(url)
       .pipe(
-        // map(res => res),
+        map(res => res['content']),
         catchError(this.handleError)
       );
   }
