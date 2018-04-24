@@ -6,18 +6,28 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
+import { IEstudiante, IPagedResults } from '../shared/interfaces';
+
 @Injectable()
 export class EstudianteService {
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
-  getEstudiantes(): Observable<any[]> {
-    const url = `${this.apiUrl}/student`;
+  getEstudiantes(page: number, pageSize: number): Observable<IPagedResults<IEstudiante[]>> {
+    const url = `${this.apiUrl}/student?page=${page}&size=${pageSize}`;
 
-    return this.http.get<any[]>(url)
+    return this.http.get<IEstudiante[]>(url)
       .pipe(
-        map(res => res['content']),
+        map(res => {
+          const totalRecords = res["totalElements"];
+          const estudiantes = res["content"] as IEstudiante[];
+
+          return {
+            results: estudiantes,
+            totalRecords: totalRecords
+          };
+        }),
         catchError(this.handleError)
       );
   }

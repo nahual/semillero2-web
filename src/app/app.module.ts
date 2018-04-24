@@ -14,6 +14,7 @@ import { NodoModule } from './nodo/nodo.module';
 import { EstudianteModule } from './estudiante/estudiante.module';
 import { EmpresaModule } from './empresa/empresa.module';
 
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EmpresaModule } from './empresa/empresa.module';
     NodoModule,
     EstudianteModule,
     EmpresaModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
