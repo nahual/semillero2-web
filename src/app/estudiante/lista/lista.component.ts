@@ -17,7 +17,7 @@ export class EstudianteListaComponent implements OnInit {
   constructor(private estudianteService: EstudianteService) { }
 
   ngOnInit() {
-    this.getEstudiantesPage(0);
+    this.getEstudiantesPage(1);
   }
 
   pageChanged(page: number) {
@@ -25,7 +25,7 @@ export class EstudianteListaComponent implements OnInit {
   }
 
   getEstudiantesPage(page: number): void {
-    this.estudianteService.getEstudiantes((page - 1) * this.pageSize, this.pageSize).subscribe(
+    this.estudianteService.getEstudiantes(page - 1, this.pageSize).subscribe(
       response => {
         this.totalRecords = response.totalRecords;
         this.estudiantes = response.results;
