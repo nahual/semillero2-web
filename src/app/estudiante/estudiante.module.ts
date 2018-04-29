@@ -4,9 +4,12 @@ import { EstudianteListaComponent } from './lista/lista.component';
 import { EstudianteAltaComponent } from './alta/alta.component';
 import { EstudianteService } from './estudiante.service';
 
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   declarations: [
     EstudianteListaComponent,

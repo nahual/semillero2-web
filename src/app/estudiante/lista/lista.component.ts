@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EstudianteService } from '../estudiante.service';
+import { IEstudiante } from '../../shared/interfaces';
 
 @Component({
   selector: 'app-estudiante-lista',
@@ -8,17 +9,27 @@ import { EstudianteService } from '../estudiante.service';
   styleUrls: ['./lista.component.scss']
 })
 export class EstudianteListaComponent implements OnInit {
-  public estudiantes: any[];
+  public estudiantes: IEstudiante[];
+
+  public totalRecords = 0;
+  public pageSize = 2;
 
   constructor(private estudianteService: EstudianteService) { }
 
   ngOnInit() {
-    this.getEstudiantes();
+    this.getEstudiantesPage(1);
   }
 
-  getEstudiantes(): void {
-    this.estudianteService.getEstudiantes().subscribe(
-      res => console.log(res)
+  pageChanged(page: number) {
+      this.getEstudiantesPage(page);
+  }
+
+  getEstudiantesPage(page: number): void {
+    this.estudianteService.getEstudiantes(page - 1, this.pageSize).subscribe(
+      response => {
+        this.totalRecords = response.totalRecords;
+        this.estudiantes = response.results;
+      }
     )
   }
 
