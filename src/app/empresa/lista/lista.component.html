@@ -3,11 +3,12 @@
 <table class="table">
 	<tbody class="table-striped"></tbody>
 	<tr scope="row"><th>Nombre</th><th>Empresa</th></tr>
-	 <tr *ngFor="let row of items.companies" scope="row">
+	 <tr *ngFor="let row of empresas" scope="row">
 	 	<td>{{row.name}}</td>
 	 	<td>{{row.email}}</td>
 	 	<td><a (click)="onEdit(hero)" href="#"> Editar</a></td>
 	 	<td><a (click)="onRemove(hero)" href="#"> Editar</a></td>
 	 </tr>
 </table>
+<app-pagination [hidden]="!empresas" [totalItems]="totalRecords" [pageSize]="pageSize" (pageChanged)="pageChanged($event)"></app-pagination>
 </div>

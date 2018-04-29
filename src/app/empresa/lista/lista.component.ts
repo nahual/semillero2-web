@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from '../empresa';
-import { EMPRESAS } from '../mock-empresa';
+import { EmpresaService } from '../empresa.service';
 
 @Component({
   selector: 'app-empresa-lista',
@@ -9,15 +9,18 @@ import { EMPRESAS } from '../mock-empresa';
 })
 export class EmpresaListaComponent implements OnInit {
 
-	selectedCompany = {};
-  items = {
-  	companies : EMPRESAS
-  };
- 
+  public empresas: Empresa[];
 
-  constructor() { }
+  public totalRecords = 0;
+  public pageSize = 2;
+
+	public selectedCompany = {};
+   
+
+  constructor(private empresaService: EmpresaService) { }
 
   ngOnInit() {
+    this.getEmpresasPage(1);
   }
 
   onEdit(empresa: Empresa): void {
@@ -26,5 +29,18 @@ export class EmpresaListaComponent implements OnInit {
 
     onRemove(empresa: Empresa): void {
     this.selectedCompany = empresa;
+  }
+
+  pageChanged(page: number) {
+      this.getEmpresasPage(page);
+  }
+
+  getEmpresasPage(page: number): void {
+    this.empresaService.getEmpresas(page - 1, this.pageSize).subscribe(
+      response => {
+        this.totalRecords = response.totalRecords;
+        this.empresas = response.results;
+      }
+    )
   }
 }
