@@ -1,4 +1,4 @@
-FROM node:9
+FROM node:12.13.1-buster
 
 USER node
 
